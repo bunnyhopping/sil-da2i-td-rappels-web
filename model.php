@@ -3,7 +3,7 @@ require ('connexion.php');
 class Person{
 	public function getBaseInfos()
 	{
-		$sqlquery=mysqli_query($link,"select * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film");
+		$sqlquery=mysqli_query($link,"SELECT * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film");
 		$res=$sqlquery->fetch_array();
 		return $res;
 	}
@@ -25,7 +25,7 @@ class Director extends Person{
 
 public function getBaseInfos()
 	{
-		$sqlquery=mysqli_query($link,"select * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film and film_has_personne='R'");
+		$sqlquery=mysqli_query($link,"SELECT * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film and film_has_personne='R'");
 		$res=$sqlquery->fetch_array();
 		return $res;
 	}
@@ -47,7 +47,7 @@ class Actor extends Person{
 
 public function getBaseInfos()
 	{
-		$sqlquery=mysqli_query($link,"select * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film and film_has_personne='A'");
+		$sqlquery=mysqli_query($link,"SELECT * from personne,personne_has_photo,photo,film,film_has_personne where personne.id=personne_has_photo.id_personne and photo.id=personne_has_photo.id_photo and film_has_personne.id_personne=personne.id and film.id=film_has_personne.id_film and film_has_personne='A'");
 		$res=$sqlquery->fetch_array();
 		return $res;
 		
@@ -67,9 +67,16 @@ class Movie{
     } 
 	}
 	
-	public function getBaseInfos()
+	public function getBaseInfos($idd)
 	{
-
+		require('connexion.php');
+		$sqlquery = mysqli_query($link,"SELECT f.id,f.titre,f.datedesortie,f.synopsis,f.note,p.chemin,p.legende from film as f, photo as p, film_has_photo as fp where f.id=fp.id_film and p.id=fp.id_photo and f.id=$idd");
+		if(mysqli_num_rows($sqlquery)>0){
+			while($row = mysqli_fetch_array($sqlquery)){
+				$data[]=$row;
+			}
+			return $data;
+		}
 	}
 }
  

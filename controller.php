@@ -13,6 +13,10 @@
 		$data=$directorModel->getAllDirectors();
 		require_once('view/view_director.php');
 	}
+	function oneDirector()
+	{
+
+	}
 		}
 		class MovieController{
 
@@ -23,6 +27,13 @@
 		$data=$moviesModel->getAllMovies();
 		require_once('view/view_movies.php');
 	}
+	function oneMovie($idd)
+	{
+		require_once('model.php');
+		$movieModel=new Movie();
+		$data=$movieModel->getBaseInfos($idd);
+		require_once('view/view_movie.php');
+	}
 		}
 
 		class ActorController{
@@ -32,6 +43,10 @@
 		$actorsModel=new Actor();
 		$data=$actorsModel->getAllActors();
 		require_once('view/view_actors.php');
+	}
+	function oneActor()
+	{
+
 	}
 		}
 
