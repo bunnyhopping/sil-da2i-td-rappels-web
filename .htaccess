@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{bootstrap.php} !-f
+RewriteCond %{bootstrap.php} !-d

@@ -1,0 +1,30 @@
+ul{
+	text-align: center;
+}
+footer{
+	text-align: center;
+}
+#notme{
+	text-align: left;
+}
+#listacteurs{
+	text-align: left;
+}
+figure{
+	width: 90vw;
+}
+#filmposter{
+	text-align: center;
+}
+#listedesrealisateurs{
+	text-align: left;
+}
+#listedesacteurs{
+	text-align: left;
+}
+#listefilms{
+	text-align: left;
+}
+dd{
+	display: none;
+}
