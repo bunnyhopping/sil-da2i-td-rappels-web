@@ -1,6 +1,7 @@
 <?php
 require ('function.php');
-include ('connexion.php');
+require ('connexion.php');
+require_once ('controller.php');
 $idd=$_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -18,9 +19,8 @@ $idd=$_GET['id'];
 </head>
 <body>
 <?php
-	getBlock('imagesacteurs.php',$idd);
-?>
-<?php
+		$actors=new ActorController();
+		$actors->allActorImages($idd);
 		getBlock('footer.php');
 	?>
 </body>

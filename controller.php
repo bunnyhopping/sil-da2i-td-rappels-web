@@ -3,6 +3,16 @@
 		class HomeController{
 
 		}
+		class PersonController{
+	
+	function onePerson($idd)
+	{
+		require_once('model.php');
+		$actorModel=new Person();
+		$data=$actorModel->getBaseInfos($idd);
+		require_once('view/view_person.php');
+		}
+	}
 
 		class DirectorController{
 
@@ -11,13 +21,17 @@
 		require_once('model.php');
 		$directorModel=new Director();
 		$data=$directorModel->getAllDirectors();
-		require_once('view/view_director.php');
+		require_once('view/view_directors.php');
 	}
-	function oneDirector()
+	function oneDirector($idd)
 	{
-
-	}
+		require_once('model.php');
+		$directorModel=new Director();
+		$data=$directorModel->getBaseInfos($idd);
+		require_once('view/view_person.php');
 		}
+	}
+		
 		class MovieController{
 
 	function allMovies()
@@ -44,10 +58,21 @@
 		$data=$actorsModel->getAllActors();
 		require_once('view/view_actors.php');
 	}
-	function oneActor()
+	function allActorImages($idd)
 	{
-
+		require_once('model.php');
+		$actorsModel=new Actor();
+		$data=$actorsModel->getAllActorImages($idd);
+		require_once('view/view_imageactors.php');
 	}
+	function oneActor($idd)
+	{
+		require_once('model.php');
+		$actorModel=new Actor();
+		$data=$actorModel->getBaseInfos($idd);
+		require_once('view/view_person.php');
+	}
+
 		}
 
 

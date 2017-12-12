@@ -9,6 +9,7 @@ $idd=$_GET['id'];
 <!DOCTYPE html>
 <html>
 <head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>FAQ</title>
 	<?php

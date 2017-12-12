@@ -1,6 +1,7 @@
 <?php
-require ('function.php');
-include ('connexion.php');
+require_once ('function.php');
+require ('connexion.php');
+require_once ('controller.php');
 $idd=$_GET['id'];
 ?>
 <!DOCTYPE html>
@@ -13,8 +14,9 @@ $idd=$_GET['id'];
 <main>
 	<article>
 		<?php
-		 getBlock('infospersonne.php',$idd);?>
-		<?php getBlock('filmographiepersonne.php',$idd);?>
+		$person=new ActorController();
+		$person->oneActor($idd);
+		?>
 	</article>
 </main>
 <?php

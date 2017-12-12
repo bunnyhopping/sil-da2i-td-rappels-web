@@ -3,7 +3,7 @@
 		<h2>Site realisé par Jan Edward López Dobrusin.</h2>
 	</footer>
 	<script>
-		$(document).ready(function() {
+	$(document).ready(function() {
     // votre script
     $('dt').each(function(){
     $(this).data( "clic", { value:0 });
